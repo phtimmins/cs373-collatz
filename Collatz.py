@@ -45,6 +45,8 @@ def collatz_eval (i, j) :
 
 MAX_INT = 2**32 - 1
 
+cache = {}
+
 def cycle_length (n) :
     assert n >= 1
 
@@ -54,14 +56,20 @@ def cycle_length (n) :
 
     length = 1
 
-    while n != 1:
+    if n in cache:
+        return cache[n]
+
+    k = n
+    while k != 1:
         length += 1
-        if n % 2 == 0:
-            n //= 2
+        if k % 2 == 0:
+            k //= 2
         else:
-            n = (3 * n + 1)
+            k = (3 * k + 1)
 
     assert length >= 1
+
+    cache[n] = length
     return length
 
             
