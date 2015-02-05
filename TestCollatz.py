@@ -13,7 +13,7 @@
 from io       import StringIO
 from unittest import main, TestCase
 
-from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve, collatz_len
+from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve, cycle_length
 
 # -----------
 # TestCollatz
@@ -75,15 +75,15 @@ class TestCollatz (TestCase) :
     # -----
 
     def test_length_1 (self):
-        v = collatz_len(1)
+        v = cycle_length(1)
         self.assertEqual(v, 1) 
 
     def test_length_odd (self):
-        v = collatz_len(11)
+        v = cycle_length(11)
         self.assertEqual(v, 15) 
 
     def test_length_even(self):
-        v = collatz_len(50)
+        v = cycle_length(50)
         self.assertEqual(v, 25) 
 
 
