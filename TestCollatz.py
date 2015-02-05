@@ -62,6 +62,14 @@ class TestCollatz (TestCase) :
         v = collatz_eval(6, 6)
         self.assertEqual(v, 9)
 
+    def test_eval_1st_bound_larger (self) :
+        v = collatz_eval(30, 20)
+        self.assertEqual(v, 112)
+    
+    def test_eval_1st_bound_larger_2nd_bound_1 (self) :
+        v = collatz_eval(15, 1)
+        self.assertEqual(v, 20)
+
 
     # -----
     # print
