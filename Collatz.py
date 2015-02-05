@@ -52,14 +52,14 @@ def cycle_length (n) :
         n %= MAX_INT
     assert n <= MAX_INT
 
+    length = 1
 
-    if n == 1:
-        length = 1
-    elif n % 2 == 0:
-        length = 1 + cycle_length(n // 2)
-    else:
-        length = 1 + cycle_length(3 * n + 1)
-
+    while n != 1:
+        length += 1
+        if n % 2 == 0:
+            n //= 2
+        else:
+            n = (3 * n + 1)
 
     assert length >= 1
     return length
