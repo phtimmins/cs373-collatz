@@ -47,6 +47,49 @@ MAX_INT = 2**32 - 1
 
 cache = {}
 
+
+"""
+def fillInsert(aList, index, item):
+    if index <= len(aList):
+        aList[index - 1] = item
+    else:
+        for i in range(len(aList), index):
+            aList.append(0)
+        aList.append(item)
+"""
+
+
+
+
+def cycle_length (n) :
+    assert n >= 1
+
+    if n > MAX_INT:
+        n %= MAX_INT
+    assert n <= MAX_INT
+
+    if n in cache:
+        return cache[n]
+
+    if n == 1:
+        length = 1
+    elif n % 2 == 0:
+        length = 1 + cycle_length(n // 2)
+    else:
+        length = 1 + cycle_length(3*n + 1)
+        
+
+    assert length >= 1
+
+    cache[n] = length
+    return length
+
+            
+    
+
+
+"""
+
 def cycle_length (n) :
     assert n >= 1
 
@@ -56,23 +99,25 @@ def cycle_length (n) :
 
     length = 1
 
-    if n in cache:
-        return cache[n]
-
     k = n
     while k != 1:
-        length += 1
+        if k in cache:
+            length += (cache[k] - 1)
+            break
         if k % 2 == 0:
             k //= 2
         else:
             k = (3 * k + 1)
+        length += 1
 
     assert length >= 1
 
     cache[n] = length
     return length
-
             
+"""  
+
+           
     
 
 # -------------
