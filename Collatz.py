@@ -37,24 +37,34 @@ def collatz_eval (i, j) :
 
     assert i <= j
 
-    result = max(collatz_len(x) for x in range(i, j + 1))
+    result = max(cycle_length(x) for x in range(i, j + 1))
     assert result >= 1
     return result
     
 
-def collatz_len (n) :
+
+MAX_INT = 2**32 - 1
+
+def cycle_length (n) :
     assert n >= 1
+
+    if n > MAX_INT:
+        n %= MAX_INT
+    assert n <= MAX_INT
+
+
     if n == 1:
         length = 1
     elif n % 2 == 0:
-        length = 1 + collatz_len(n // 2)
+        length = 1 + cycle_length(n // 2)
     else:
-        length = 1 + collatz_len(3 * n + 1)
+        length = 1 + cycle_length(3 * n + 1)
+
+
     assert length >= 1
     return length
 
-
-             
+            
     
 
 # -------------
