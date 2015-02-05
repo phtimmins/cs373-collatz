@@ -1,16 +1,10 @@
 #!/usr/bin/env python3
 
 # ---------------------------
-# projects/collatz/SphereCollatz.py
+# projects/collatz/Collatz.py
 # Copyright (C) 2015
 # Glenn P. Downing
 # ---------------------------
-
-# -------
-# imports
-# -------
-
-import sys
 
 # ------------
 # collatz_read
@@ -43,22 +37,43 @@ def collatz_eval (i, j) :
 
     assert i <= j
 
-    result = max(collatz_len(x) for x in range(i, j + 1))
+    result = max(cycle_length(x) for x in range(i, j + 1))
     assert result >= 1
     return result
     
 
-def collatz_len (n) :
+
+MAX_INT = 2**32 - 1
+
+cache = {}
+
+def cycle_length (n) :
     assert n >= 1
-    if n == 1:
-        length = 1
-    elif n % 2 == 0:
-        length = 1 + collatz_len(n // 2)
-    else:
-        length = 1 + collatz_len(3 * n + 1)
+
+    if n > MAX_INT:
+        n %= MAX_INT
+    assert n <= MAX_INT
+
+    length = 1
+
+    if n in cache:
+        return cache[n]
+
+    k = n
+    while k != 1:
+        length += 1
+        if k % 2 == 0:
+            k //= 2
+        else:
+            k = (3 * k + 1)
+
     assert length >= 1
+
+    cache[n] = length
     return length
 
+            
+    
 
 # -------------
 # collatz_print
@@ -87,6 +102,20 @@ def collatz_solve (r, w) :
         i, j = collatz_read(s)
         v    = collatz_eval(i, j)
         collatz_print(w, i, j, v)
+#!/usr/bin/env python3
+
+# ------------------------------
+# projects/collatz/RunCollatz.py
+# Copyright (C) 2014
+# Glenn P. Downing
+# ------------------------------
+
+# -------
+# imports
+# -------
+
+import sys
+
 
 # ----
 # main
@@ -95,3 +124,27 @@ def collatz_solve (r, w) :
 if __name__ == "__main__" :
     collatz_solve(sys.stdin, sys.stdout)
 
+"""
+% cat RunCollatz.in
+1 10
+100 200
+201 210
+900 1000
+
+
+
+% RunCollatz.py < RunCollatz.in > RunCollatz.out
+
+
+
+% cat RunCollatz.out
+1 10 1
+100 200 1
+201 210 1
+900 1000 1
+
+
+
+% pydoc3 -w Collatz
+# That creates the directory Collatz.html
+"""
