@@ -50,6 +50,19 @@ class TestCollatz (TestCase) :
         v = collatz_eval(900, 1000)
         self.assertEqual(v, 174)
 
+    def test_eval_same_bound_1 (self) :
+        v = collatz_eval(1, 1)
+        self.assertEqual(v, 1)
+
+    def test_eval_same_bound_odd (self) :
+        v = collatz_eval(5, 5)
+        self.assertEqual(v, 6)
+
+    def test_eval_same_bound_even (self) :
+        v = collatz_eval(6, 6)
+        self.assertEqual(v, 9)
+
+
     # -----
     # print
     # -----
