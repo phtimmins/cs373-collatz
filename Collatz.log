@@ -1,0 +1,155 @@
+commit 86e11a283016438161c315e88163c120f9738447
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 21:11:17 2015 -0600
+
+    Added pragma to improve coverage reporting
+
+commit fc555238de1a117b531501872dff49ecef961c99
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 21:09:44 2015 -0600
+
+    Added comments to cycle_length
+
+commit f3ba180a358fe0bfe5ab93f411929484a2de489b
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 19:56:32 2015 -0600
+
+    Added more unit tests, closes #9
+
+commit 86705c14ce40a1292ad1e4961933acb463c6bbca
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 19:42:29 2015 -0600
+
+    Removed acceptance test code, cleaned up Collatz.py
+
+commit e4b4b29e49c335f53e0e2f67418ab7b069847178
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 19:41:14 2015 -0600
+
+    Added functions to pick acceptance tests
+
+commit 51945a63f508d279de38a01559e0c8cbefecc302
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 19:39:48 2015 -0600
+
+    Made acceptance tests with input in RunCollatz.in and output in RunCollatz.out, closes #15
+
+commit b5bb2c1c08db3738c9b78ea485d1287e82f8d690
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 18:14:12 2015 -0600
+
+    Removed all 32bit overflow code and iterative version of cycle_length
+
+commit b051c6740bc3a42bcf55103e029dc3576f2f0029
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 18:01:06 2015 -0600
+
+    Worked on making number overflow like 32bit int, but unable to get V2 working. Abandon this till I finish eveything else.
+
+commit d871db567f8a37fb571cafe29249e80b480fd805
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 14:55:40 2015 -0600
+
+    Changed back to dictionary cache, added 2 step optimization for odd numbers, closes #31
+
+commit 09619d580f55da68955e1407d855b086a44852f6
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 14:44:31 2015 -0600
+
+    Made a list based cache. Probably wont keep, as very inefficient
+
+commit 6e1f51779319c0cedbfe6d62b273d4b1f6d5e128
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 14:17:27 2015 -0600
+
+    Changed algorithm back to recursive and fixed cache so that it sets intermediate values
+
+commit c7fe1846e4acf501d54c8c1d8bc9606e01ff6143
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 13:01:45 2015 -0600
+
+    Remade SphereCollatz.py from Collatz.py and RunCollatz.py and ran succesfully on Sphere, closes #19
+
+commit 2be859d6162d1abca85b66473aa1309f93a6e1dc
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 12:59:21 2015 -0600
+
+    Added simple cache using a dictionary, closes #18
+
+commit a16ee5f990871a40375fa91fb3d72a00098dab30
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 12:27:40 2015 -0600
+
+    Change cycle length to be computed iterative rather than recursively, closes #29
+
+commit 689c725b55d8a4aa9c632a184308cfbc9bfb4e53
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 12:22:53 2015 -0600
+
+    Change TestCollatz.py to reflect change in name collatz_len to cycle_length
+
+commit 527524c9957e35cb936a995325651b3f5bfeb46e
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 11:34:24 2015 -0600
+
+    Change collatz_len name to cycle_length, and truncate arguments that would overflow a 32bit signed int. Closes #28
+
+commit 6946f9b0bea87efc40944bf6e1daa5d1248674ef
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 10:06:55 2015 -0600
+
+    Combined Collatz.py and RunCollatz.py into SphereCollatz.py, ran on Sphere, closes #14
+
+commit cb654e1871019e6d769312ca7ca588b970255745
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 09:41:34 2015 -0600
+
+    Implemented simplest version of collatz_eval, closes #10
+
+commit 9f6b1bd6b284645633d9f4fa404ce31c218d637c
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 09:32:36 2015 -0600
+
+    Made unit tests for collatz_len, closes #27
+
+commit e7c0c8c8d0537e49157e83670db03878d7e77385
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 09:14:21 2015 -0600
+
+    Made collatz_eval unit tests with larger bound first, closes #25
+
+commit 0a36992b45cbe0f2246470bbef0870e372ad78c4
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Thu Feb 5 08:58:07 2015 -0600
+
+    Made unit tests with same lower and upper bound, closes #26
+
+commit 01c1c1c581b83af856477ce3cc00a2b87e433809
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Wed Feb 4 18:54:51 2015 -0600
+
+    Fixed units test, closing #8
+
+commit 9f86e5db5473b87dfa6c8037867dedc2cd675dce
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Tue Feb 3 15:24:33 2015 -0600
+
+    Rename RunCollatz.out.txt to RunCollatz.out and do same for TestCollatz.out.txt and RunCollatz.in
+
+commit c10eb4532904330a40ca84edc3c21c58e630441d
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Tue Feb 3 15:18:37 2015 -0600
+
+    Ran RunCollatz & TestCollatz, adding the output to the associated out.txt files. Closes #7
+
+commit f903ed274c6b285a94f651c3d2bc78d6ecf162d3
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Tue Feb 3 15:05:25 2015 -0600
+
+    Copied code from public class repo to private repo, closes #6
+
+commit 7e5e4cf4c8e2e920b876dbf72a902e7225b68d5f
+Author: Parker Timmins <parkert@cs.utexas.edu>
+Date:   Tue Feb 3 14:01:27 2015 -0600
+
+    first commit
