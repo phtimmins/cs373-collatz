@@ -102,7 +102,7 @@ class TestCollatz (TestCase) :
 
 
     def test_solve (self) :
-        r = StringIO("999999 999999")
+        r = StringIO("999999 999999\n")
         w = StringIO()
         collatz_solve(r, w)
         self.assertEqual(w.getvalue(), "999999 999999 1\n")
@@ -120,7 +120,7 @@ class TestCollatz (TestCase) :
 if __name__ == "__main__" :
     main()
 
-"""
+""" #pragma: no cover
 % coverage3 run --branch TestCollatz.py >  TestCollatz.out 2>&1
 
 
