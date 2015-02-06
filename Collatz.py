@@ -40,22 +40,13 @@ def collatz_eval (i, j) :
     result = max(cycle_length(x) for x in range(i, j + 1))
     assert result >= 1
     return result
-    
 
 
-MAX_INT = 2**32 - 1
+MAX_INT = 2**31 - 1
+ODD_MAX = (MAX_INT - 1) // 3 - 1000
+
 
 cache = {}
-
-
-def fillInsert(aList, index, item):
-    if index <= len(aList):
-        aList[index - 1] = item
-    else:
-        for i in range(len(aList) + 1, index):
-            aList.append(0)
-        aList.append(item)
-
 
 
 
@@ -64,6 +55,8 @@ def cycle_length (n) :
 
     if n > MAX_INT:
         n %= MAX_INT
+#        n = n % (MAX_INT + 1)
+#        n = (n % MAX_INT) - MAX_INT - 2
     assert n <= MAX_INT
 
     if n in cache:
@@ -73,6 +66,8 @@ def cycle_length (n) :
         length = 1
     elif n % 2 == 0:
         length = 1 + cycle_length(n // 2)
+    elif n >= ODD_MAX:
+        length = 1 + cycle_length(3*n + 1)
     else:
         length = 2 + cycle_length(n + (n >> 1) + 1)
         
@@ -82,8 +77,6 @@ def cycle_length (n) :
     cache[n] = length
     return length
 
-            
-    
 
 
 """
