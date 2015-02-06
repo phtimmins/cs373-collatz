@@ -40,41 +40,40 @@ def collatz_eval (i, j) :
     result = max(cycle_length(x) for x in range(i, j + 1))
     assert result >= 1
     return result
-    
 
 
-MAX_INT = 2**32 - 1
-
+#Caches previously found cycle lengths, 
+#both for recursive calls and others top-level calls to cyclelength()
 cache = {}
 
+# ------------
+# cycle_length 
+# ------------
 def cycle_length (n) :
+    """
+    n an integer greater than or equal to 1
+    computes the length of the collatz sequence starting with n
+    """
     assert n >= 1
-
-    if n > MAX_INT:
-        n %= MAX_INT
-    assert n <= MAX_INT
-
-    length = 1
-
+   
+    # if n is in cache don't do any computing just return 
     if n in cache:
         return cache[n]
 
-    k = n
-    while k != 1:
-        length += 1
-        if k % 2 == 0:
-            k //= 2
-        else:
-            k = (3 * k + 1)
-
+    if n == 1:
+        length = 1
+    elif n % 2 == 0:
+        length = 1 + cycle_length(n // 2)
+    else:
+        length = 2 + cycle_length(n + (n >> 1) + 1)
+        
     assert length >= 1
 
+    # set cache with new value
     cache[n] = length
     return length
 
-            
-    
-
+           
 # -------------
 # collatz_print
 # -------------
