@@ -100,6 +100,13 @@ class TestCollatz (TestCase) :
     # solve
     # -----
 
+
+    def test_solve (self) :
+        r = StringIO("999999 999999")
+        w = StringIO()
+        collatz_solve(r, w)
+        self.assertEqual(w.getvalue(), "999999 999999 1\n")
+
     def test_solve (self) :
         r = StringIO("1 10\n100 200\n201 210\n900 1000\n")
         w = StringIO()
