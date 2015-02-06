@@ -42,11 +42,21 @@ def collatz_eval (i, j) :
     return result
 
 
+#Caches previously found cycle lengths, 
+#both for recursive calls and others top-level calls to cyclelength()
 cache = {}
-  
-def cycle_length (n) :
-    assert n >= 1
 
+# ------------
+# cycle_length 
+# ------------
+def cycle_length (n) :
+    """
+    n an integer greater than or equal to 1
+    computes the length of the collatz sequence starting with n
+    """
+    assert n >= 1
+   
+    # if n is in cache don't do any computing just return 
     if n in cache:
         return cache[n]
 
@@ -58,6 +68,8 @@ def cycle_length (n) :
         length = 2 + cycle_length(n + (n >> 1) + 1)
         
     assert length >= 1
+
+    # set cache with new value
     cache[n] = length
     return length
 
